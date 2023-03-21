@@ -1,6 +1,6 @@
 {
   "name": "@gauk-developers/ts-force-gen",
-  "version": "3.2.0-beta.1",
+  "version": "3.2.0-beta.2",
   "description": "Code generation for ts-force",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ChuckJonas/ts-force.git"
+    "url": "git+https://github.com/GAUK-Developers/ts-force.git"
   },
   "keywords": [
     "salesforce",
