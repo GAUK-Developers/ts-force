@@ -1,6 +1,6 @@
 import { camelCase } from 'lodash';
 import { ChildRelationship, Field, Rest, SalesforceFieldType, SFieldProperties, SObjectDescribe } from '../../ts-force';
-import { ClassDeclaration, DecoratorStructure, JSDocStructure, PropertyDeclarationStructure, Scope, SourceFile, ImportDeclarationStructure, StructureKind, WriterFunctions } from 'ts-morph';
+import { ClassDeclaration, DecoratorStructure, JSDocStructure, PropertyDeclarationStructure, Scope, SourceFile, ImportDeclarationStructure, StructureKind, Writers } from 'ts-morph';
 import { SObjectConfig } from './config';
 import { cleanAPIName, replaceSource } from './util';
 
@@ -134,7 +134,6 @@ export class SObjectGenerator {
       name: 'API_NAME',
       scope: Scope.Public,
       isStatic: true,
-      type: `'${sobConfig.apiName}'`,
       initializer: `'${sobConfig.apiName}'`
     });
 
@@ -142,7 +141,6 @@ export class SObjectGenerator {
       name: '_TYPE_',
       scope: Scope.Public,
       isReadonly: true,
-      type: `'${sobConfig.apiName}'`,
       initializer: `'${sobConfig.apiName}'`
     });
 
@@ -257,14 +255,14 @@ export class SObjectGenerator {
       let picklistConsts = {};
 
       this.pickLists.forEach((values, field) => {
-        picklistConsts[field] = WriterFunctions.object(values.reduce((obj, pv) => {
+        picklistConsts[field] = Writers.object(values.reduce((obj, pv) => {
           obj[pv[0]] = writer => writer.quote(pv[1]);
           return obj;
         }, {}));
       });
 
       let x = writer => {
-        WriterFunctions.object(picklistConsts)(writer);
+        Writers.object(picklistConsts)(writer);
         writer.write(' as const');
       };
 

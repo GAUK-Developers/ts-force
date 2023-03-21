@@ -1,14 +1,11 @@
 {
+  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./", // enables relative imports to root
+    "baseUrl": "./",
     "paths": {
       "@src/*": ["src/*"]
     },
-    "target": "es5",
-    "lib": ["es6", "DOM"],
-    "module": "commonjs",
     "outDir": "./build",
-    "moduleResolution": "node",
     "declaration": true,
     "experimentalDecorators": true,
     "noImplicitAny": false,

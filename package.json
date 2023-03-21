@@ -1,6 +1,6 @@
 {
-  "name": "ts-force-project",
-  "version": "3.1.0-beta.2",
+  "name": "@gauk-developers/ts-force-project",
+  "version": "3.2.0-beta.1",
   "description": "",
   "scripts": {
     "postinstall": "cd ts-force && npm install && npm run build && cd ../ts-force-gen && npm install",
@@ -12,17 +12,17 @@
     "publishRuntime": "cd ts-force && npm version $npm_package_version && npm publish",
     "publishGen": "cd ts-force-gen && npm version $npm_package_version && npm publish",
     "build": "cd ts-force && npm run build && cd ../ts-force-gen && npm run build",
-    "tagNext": "npm dist-tag add ts-force@$npm_package_version && npm dist-tag add ts-force-gen@$npm_package_version",
+    "tagNext": "npm dist-tag add @gauk-developers/ts-force@$npm_package_version && npm dist-tag add @gauk-developers/ts-force-gen@$npm_package_version",
     "publishBoth": "npm run checkCommitted && npm run publishRuntime && npm run publishGen && npm run tag"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ChuckJonas/ts-force.git"
+    "url": "git+https://github.com/GAUK-Developers/ts-force.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ChuckJonas/ts-force/issues"
+    "url": "https://github.com/GAUK-Developers/ts-force/issues"
   },
-  "homepage": "https://github.com/ChuckJonas/ts-force#readme"
+  "homepage": "https://github.com/GAUK-Developers/ts-force#readme"
 }

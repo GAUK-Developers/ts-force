@@ -1,6 +1,6 @@
 {
-  "name": "ts-force-gen",
-  "version": "3.1.0-beta.1",
+  "name": "@gauk-developers/ts-force-gen",
+  "version": "3.2.0-beta.1",
   "description": "Code generation for ts-force",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
@@ -32,34 +32,36 @@
     "prepublishOnly": "npm run clean-build && npm run generate-json-schema"
   },
   "engines": {
-    "node": ">=4.5"
+    "node": ">=16"
   },
   "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
     "@types/chai": "^4.0.4",
     "@types/cli-spinner": "^0.2.0",
     "@types/lodash": "^4.14.149",
+    "@types/minimist": "^1.2.2",
     "@types/mocha": "^8.2.2",
     "@types/nock": "^8.2.1",
-    "@types/node": "^14.11.4",
+    "@types/node": "^18.15.5",
     "chai": "^4.1.2",
     "mocha": "^8.3.2",
     "mocha-typescript": "^1.1.8",
     "nock": "^9.2.6",
     "source-map-support": "^0.4.18",
     "ts-mocha": "^8.0.0",
-    "ts-node": "^7.0.1",
+    "ts-node": "^10.9.1",
     "tslint": "^5.4.3",
     "tslint-config-standard": "^6.0.1",
-    "typescript": "^4.0.3",
+    "typescript": "^5.0.2",
     "typescript-json-schema": "^0.43.0"
   },
   "dependencies": {
-    "@salesforce/core": "^2.12.3",
+    "@salesforce/core": "^3.33.0",
     "cli-spinner": "0.2.10",
     "dotenv": "^4.0.0",
     "lodash": "^4.17.20",
     "minimist": "^1.2.5",
-    "ts-morph": "^2.1.0",
-    "tslib": "^2.0.3"
+    "ts-morph": "^17.0.1",
+    "tslib": "^2.5.0"
   }
 }

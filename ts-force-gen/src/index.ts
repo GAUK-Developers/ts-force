@@ -3,13 +3,13 @@
 import { requestAccessToken, setDefaultConfig } from '../../ts-force';
 import { SourceFile } from 'ts-morph';
 import { SObjectGenerator, TS_FORCE_IMPORTS } from './sObjectGenerator';
-import * as minimist from 'minimist';
+import minimist from 'minimist';
 import * as fs from 'fs';
 import * as path from 'path';
 import { SObjectConfig, Config } from './config';
 import { cleanAPIName, replaceSource } from './util';
 import { Spinner } from 'cli-spinner';
-import { Org, Connection, AuthInfo, Aliases } from '@salesforce/core';
+import { Org, Connection, AuthInfo } from '@salesforce/core';
 import { writeFileSync } from 'fs';
 
 // execute
@@ -153,23 +153,23 @@ async function generateLoadConfig (): Promise<Config> {
 
       config.auth.accessToken = connection.accessToken;
       config.auth.instanceUrl = connection.instanceUrl;
-    } else if (config.auth.username !== undefined && config.auth.password === undefined) {
-      // just username is set, load from sfdx
-      let username = await Aliases.fetch(config.auth.username);
-      if (username) {
-        config.auth.username = username;
-      }
-      console.log(config.auth.username);
-      let connection: Connection = await Connection.create({
-        authInfo: await AuthInfo.create({ username: config.auth.username }
-        )
-      });
-      let org = await Org.create({ connection });
-      await org.refreshAuth();
-      connection = org.getConnection();
+    // } else if (config.auth.username !== undefined && config.auth.password === undefined) {
+    //   // just username is set, load from sfdx
+    //   let username = await Aliases.fetch(config.auth.username);
+    //   if (username) {
+    //     config.auth.username = username;
+    //   }
+    //   console.log(config.auth.username);
+    //   let connection: Connection = await Connection.create({
+    //     authInfo: await AuthInfo.create({ username: config.auth.username }
+    //     )
+    //   });
+    //   let org = await Org.create({ connection });
+    //   await org.refreshAuth();
+    //   connection = org.getConnection();
 
-      config.auth.accessToken = connection.accessToken;
-      config.auth.instanceUrl = connection.instanceUrl;
+    //   config.auth.accessToken = connection.accessToken;
+    //   config.auth.instanceUrl = connection.instanceUrl;
     } else if (config.auth.username !== undefined && config.auth.password !== undefined) {
       let oAuthResp = await requestAccessToken({
         grant_type: 'password',

@@ -60,7 +60,7 @@ export const queryAllComposite = async (query: string, opts: { restInstance?: Re
   for (let i = 0; i < response.compositeResponse.length; i++) { // subResponse of response.compositeResponse) {
     const subResponse = response.compositeResponse[i];
     const subReq = comp.compositeRequest[i];
-    if (subResponse.httpStatusCode === 400 && isArray(subResponse.body) && subResponse.body.length && subResponse.body[0].message.indexOf('Invalid reference specified') >= 0) {
+    if (subResponse.httpStatusCode === 400 && subResponse.body.isArray() && subResponse.body.length && subResponse.body[0].message.indexOf('Invalid reference specified') >= 0) {
       break;
     } else if (subResponse.httpStatusCode >= 300) {
       // some other error happened

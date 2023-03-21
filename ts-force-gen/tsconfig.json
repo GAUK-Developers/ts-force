@@ -1,9 +1,7 @@
 {
+  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
-    "target": "es6",
     "outDir": "build",
-    "moduleResolution": "node",
-    "module": "commonjs",
     "declaration": true,
     "importHelpers": true,
     "listFiles": false,
@@ -14,12 +12,9 @@
     "downlevelIteration": true,
     "sourceMap": true,
     "pretty": true,
-    "lib": [
-      "es6", "DOM"
-    ],
+    "noImplicitAny": false,
     "types": [
       "node",
-      "mocha"
     ],
     "baseUrl": ".",
   },
