@@ -1,6 +1,6 @@
 {
   "name": "@gauk-developers/ts-force-gen",
-  "version": "3.2.0-beta.2",
+  "version": "3.2.0-beta.3",
   "description": "Code generation for ts-force",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
@@ -29,7 +29,7 @@
     "build": "tsc -p tsconfig.build.json",
     "watch": "tsc -p tsconfig.build.json -w",
     "generate-json-schema": "npx typescript-json-schema --required ./tsconfig.json Config > ./ts-force-config.schema.json",
-    "prepublishOnly": "npm run clean-build && npm run generate-json-schema"
+    "prepublishOnly": "npm run clean-build"
   },
   "engines": {
     "node": ">=16"
