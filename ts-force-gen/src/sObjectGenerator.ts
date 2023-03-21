@@ -6,7 +6,7 @@ import { cleanAPIName, replaceSource } from './util';
 
 export const TS_FORCE_IMPORTS: ImportDeclarationStructure = {
   kind: StructureKind.ImportDeclaration,
-  moduleSpecifier: 'ts-force',
+  moduleSpecifier: '@gauk-developers/ts-force',
   namedImports: [
     { name: 'Rest' },
     { name: 'RestObject' },

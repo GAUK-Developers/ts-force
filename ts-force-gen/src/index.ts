@@ -43,7 +43,7 @@ async function checkVersion () {
 
   for (let dir of fs.readdirSync('node_modules')) {
     try {
-      if (dir === 'ts-force') {
+      if (dir === '@gauk-developers/ts-force') {
         let json = JSON.parse(fs.readFileSync(path.join('node_modules', dir, 'package.json'), 'utf8'));
         tsforce = json.version;
       }
